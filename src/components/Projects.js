@@ -3,7 +3,7 @@ import { ProjectCard } from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import {webProjects, AI_Projects} from '../constants';
+import {webProjects, AI_Projects, otherProjects} from '../constants';
 
 const Projects = () => {
 
@@ -26,7 +26,7 @@ const Projects = () => {
                       <Nav.Link eventKey="second">AI/ML</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="third">Other</Nav.Link>
+                      <Nav.Link eventKey="third">Blockchain</Nav.Link>
                     </Nav.Item>
                   </Nav>
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
@@ -59,7 +59,18 @@ const Projects = () => {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p>Here is nothing to show yet.</p>
+                    <Row>
+                        {
+                          otherProjects.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
